@@ -84,9 +84,9 @@ function computeSustainabilityIndex(debris: ReturnType<typeof computeDebrisRisk>
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("business");
-  const businessTabRef = useRef<HTMLButtonElement | null>(null);
-  const toursTabRef = useRef<HTMLButtonElement | null>(null);
-  const orbitTabRef = useRef<HTMLButtonElement | null>(null);
+  const businessTabRef = useRef<HTMLButtonElement>(null);
+  const toursTabRef = useRef<HTMLButtonElement>(null);
+  const orbitTabRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const refs: Record<string, React.RefObject<HTMLButtonElement>> = {
@@ -211,7 +211,7 @@ export default function Home() {
                   <Button
                     variant="outline"
                     onClick={() => setActiveTab("business")}
-                    onMouseDown={(e) => {
+                    onMouseDown={() => {
                       // Indicate focus visually as soon as pressed
                       setTimeout(() => businessTabRef.current?.focus(), 0);
                     }}
