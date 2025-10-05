@@ -89,11 +89,11 @@ export default function Home() {
   const orbitTabRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    const refs: Record<string, React.RefObject<HTMLButtonElement>> = {
+    const refs: Record<string, React.RefObject<HTMLButtonElement | null>> = {
       business: businessTabRef,
       tours: toursTabRef,
       orbit: orbitTabRef,
-    } as const;
+    };
     const ref = refs[activeTab];
     if (ref?.current) {
       // Defer to ensure the tab has rendered
@@ -562,7 +562,7 @@ export default function Home() {
                     <li>Green/Yellow/Red indicators for quick reviews.</li>
                   </ul>
                 </div>
-              </div>
+        </div>
             </CardContent>
           </Card>
         </TabsContent>
